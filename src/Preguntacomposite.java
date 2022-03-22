@@ -1,17 +1,18 @@
+import java.util.ArrayList;
 import java.util.List;
 
-public class Pregunta {
+public class Preguntacomposite implements Preguntas {
 
     private String pregunta;
     private List<Respuesta> respuestas;
-    private int categoria;
-    private int puntos;
 
-    public Pregunta(String pregunta, List<Respuesta> respuestas, int categoria, int puntos) {
+
+
+    public Preguntacomposite(String pregunta) {
         this.pregunta = pregunta;
-        this.respuestas = respuestas;
-        this.categoria = categoria;
-        this.puntos = puntos;
+        this.respuestas = new ArrayList<>();
+
+
     }
 
     public String getPregunta() {
@@ -30,21 +31,18 @@ public class Pregunta {
         this.respuestas = respuestas;
     }
 
-    public int getCategoria() {
-        return categoria;
+
+    public void getName() {respuestas.forEach(Preguntas::getName);}
+
+    public void addDepart(Respuesta pregunta) {
+        respuestas.add(pregunta);
     }
 
-    public void setCategoria(int categoria) {
-        this.categoria = categoria;
+    public void removeDepart(Respuesta pregunta) {
+        respuestas.remove(pregunta);
     }
 
-    public int getPuntos() {
-        return puntos;
-    }
 
-    public void setPuntos(int puntos) {
-        this.puntos = puntos;
-    }
 
 
     public  void mostrarPregunta() {
@@ -65,6 +63,10 @@ public class Pregunta {
 
      }
 
+    @Override
+    public void getName() {
+
+    }
 }
 
 
